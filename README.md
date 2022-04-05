@@ -32,15 +32,13 @@ Please avoid including artefacts from your local build (such as NuGet packages o
 
 1. How long did you spend on the coding test? What would you add to your solution if you had more time?  
 
-**About a day** 
+ **ANSWER: About a day** 
 
 2. What is the most useful feature that was recently added to .NET? Please include a snippet of code that shows how you've used it. 
 
-**I think "most useful" is subjective to opinion however one that I like is the hot reload feature in Visual Studio that enables you to make changes to your code while it's running. Another feature which I like but didn't use due to my older version of Visual Studio is the ability of System.Text.Json Serializer to asynchronously deserialize/serialize IAsyncEnumerable objects which means we don't have to use the former <Task<IEnumerable<T>> which was a blocking code**
+ **ANSWER: I think "most useful" is subjective to opinion however one that I like is the hot reload feature in Visual Studio that enables you to make changes to your code while it's running. Another feature which I like but didn't use due to my older version of Visual Studio is the ability of System.Text.Json Serializer to asynchronously deserialize/serialize IAsyncEnumerable objects which means we don't have to use the former <Task<IEnumerable<T>> which was a blocking code**
  
 3. How would you track down a performance issue in production? Have you ever had to do this?
 
-**Most performance issues can be tracked with proper logging i.e logging request times and response times. External applications like Sentry can also be used **
+ **ANSWER: Most performance issues can be tracked with proper logging i.e logging request times and response times. External applications like Sentry can also be used **
  
-
-Thanks for your time & we look forward to hearing from you!

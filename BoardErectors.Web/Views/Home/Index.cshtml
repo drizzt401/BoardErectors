@@ -1,0 +1,86 @@
+﻿@using BoardErectors.Web.Models.Home
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    int count = 0;
+}
+
+<div class="text-center mb-4">
+    <h1 class="display-4">Erecting your for-sale &amp; lettings boards</h1>
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-md-10">
+        <h2>View Properties for Estate Agents</h2>
+        <form asp-controller="Home">
+            <p>Please enter the account code of an estate agent that you wish to view all properties that have an estate agency board erected at.</p>
+
+            <div class="form-group">
+                <label for="AccountCode">Account Code</label>
+                <input class="form-control" type="text" name="AccountCode" required id="AccountCode" value="" placeholder="enter an account code..." />
+            </div>
+            <button asp-action="Index" type="submit" class="btn-primary">View Properties</button>
+            <div class="card rounded shadow border-0">
+                <div class="card-body p-5 bg-white rounded">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>S/N</td>
+                                    <td>Address</td>
+                                    <td>ErectedAt</td>
+                                    <td>BoardType</td>
+                                    <td>TotalFeeCharged</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Properties != null)
+                                {
+                                    @foreach (var property in Model.Properties)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @(++count)
+                                            </td>
+                                            <td>
+                                                @($"{ property.Address.HouseNumber}, {property.Address.Address1} {property.Address.Locality} {property.Address.Town}, {property.Address.County}  ")
+                                            </td>
+                                            <td>
+                                                @property.ErectedAt
+                                            </td>
+                                            <td>
+                                                @property.ErectedBoardType.Title
+                                            </td>
+                                            <td>
+                                                @property.TotalFeeCharged
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            @Model.Message
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Grand Total: @Model.Properties?.Sum(property => property.TotalFeeCharged)</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -2,6 +2,7 @@
 using BoardErectors.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
@@ -43,6 +44,8 @@ namespace BoardErectors.Infrastructure.Services
                 if (response.IsSuccessStatusCode)
                 {
                     properties = await JsonSerializer.DeserializeAsync<IEnumerable<Property>>(stream, _options);
+                    _logger.LogInformation("Properties response gotten at {0} :", DateTime.Now);
+                    _logger.LogInformation("Properties Data : ", properties);
                     foreach (var property in properties)
                     {
                         if (property.ErectedBoardType.Title.Equals("Sold") )
@@ -58,12 +61,14 @@ namespace BoardErectors.Infrastructure.Services
                     }
                     result.Item1 = properties;
                     result.Item2 = "Successful";
+                    
                 }
                 else
                 {
                     ProblemDetails problemDetails = await JsonSerializer.DeserializeAsync<ProblemDetails>(stream, _options);
                     result.Item1 = null;
                     result.Item2 = problemDetails.Detail ?? problemDetails.Title;
+                    _logger.LogInformation("Failed to get properties. Error details: {0} :", result.Item2);
 
                 }
 

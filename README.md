@@ -1,10 +1,6 @@
 Accent Design .NET Web Developer Technical Test
 ===============================================
 
-Thanks for your interest in the role of C#.NET developer at Accent Creative Digital Solutions. We are looking for an experienced full stack developer with skills in C#.NET with Entity Framework, SQL Server, JavaScript, API development and with good communication skills, to join our established team developing websites, web-based software systems and mobile apps. Successful candidates will join the team as a remote worker. We are a small team, so you will be be a big part of it. Your voice will be heard and you will be expected to take on jobs outside of your comfort zone.
-
-If you think you are up for it, then we would like you to spend 2-3 hours having a go at our little technical test, which consists of two parts - a coding test and a few technical questions.
-
 ## Coding Test
 
 We would like you to create a web application using C#.NET that queries an API and displays the information received. 
@@ -34,13 +30,17 @@ Please avoid including artefacts from your local build (such as NuGet packages o
 
 ## Technical Questions
 
-Please answer the following questions in a markdown file.
+1. How long did you spend on the coding test? What would you add to your solution if you had more time?  
 
-1. How long did you spend on the coding test? What would you add to your solution if you had more time? 
-2. What is the most useful feature that was recently added to .NET? Please include a snippet of code that shows how you've used it.
+**About a day** 
+
+2. What is the most useful feature that was recently added to .NET? Please include a snippet of code that shows how you've used it. 
+
+**I think "most useful" is subjective to opinion however one that I like is the hot reload feature in Visual Studio that enables you to make changes to your code while it's running. Another feature which I like but didn't use due to my older version of Visual Studio is the ability of System.Text.Json Serializer to asynchronously deserialize/serialize IAsyncEnumerable objects which means we don't have to use the former <Task<IEnumerable<T>> which was a blocking code**
+ 
 3. How would you track down a performance issue in production? Have you ever had to do this?
 
-
-Please email your code to jobs@accentdesign.co.uk or upload it to DropBox or Google Drive (or similar) and send us a link.
+**Most performance issues can be tracked with proper logging i.e logging request times and response times. External applications like Sentry can also be used **
+ 
 
 Thanks for your time & we look forward to hearing from you!
